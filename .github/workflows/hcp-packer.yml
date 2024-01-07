@@ -9,7 +9,7 @@ on:
       - "features/**"
   pull_request:
     branches: ["master", "staging"]
-  workflow_run:
+  workflow_dispatch:
 
 jobs:
   hcp-packer:
