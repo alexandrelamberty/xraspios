@@ -25,13 +25,13 @@ jobs:
           version: "latest"
       - name: Run `packer init`
         id: init
-        run: "packer init ./build.pkr.hcl"
+        run: "packer init ."
       - name: Run `packer validate`
         id: validate
-        run: "packer validate ./build.pkr.hcl"
+        run: "packer validate ."
 
       - name: Build Artifact
-        run: packer build -color=false -on-error=abort ./build.pkr.hcl
+        run: packer build -color=false -on-error=abort .
         env:
           HCP_CLIENT_ID: ${{ secrets.HCP_CLIENT_ID }}
           HCP_CLIENT_SECRET: ${{ secrets.HCP_CLIENT_SECRET }}
