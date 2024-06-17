@@ -1,14 +1,16 @@
-name: hcp-packer
+name: Packer CI
 
 on:
   push:
     branches:
       - "master"
-      - "develop/**"
-      - "releases/**"
-      - "features/**"
+      - "develop"
+      - "release/**"
+      - "feature/**"
   pull_request:
-    branches: ["master", "staging"]
+    branches: 
+      - "master"
+      - "staging"
   workflow_dispatch:
 
 jobs:
@@ -29,10 +31,3 @@ jobs:
       - name: Run `packer validate`
         id: validate
         run: "packer validate ."
-
-      - name: Build Artifact
-        run: packer build -color=false -on-error=abort .
-        env:
-          HCP_CLIENT_ID: ${{ secrets.HCP_CLIENT_ID }}
-          HCP_CLIENT_SECRET: ${{ secrets.HCP_CLIENT_SECRET }}
-          HCP_PACKER_BUILD_FINGERPRINT: "run.id.${{ github.run_id }}.run.attempt.${{ github.run_attempt }}"
