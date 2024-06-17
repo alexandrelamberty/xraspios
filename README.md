@@ -1,3 +1,5 @@
+[![Packer CI](https://github.com/alexandrelamberty/xraspios/actions/workflows/packer.yml/badge.svg)](https://github.com/alexandrelamberty/xraspios/actions/workflows/packer.yml)
+
 # Xraspios
 
 Extended Raspberry Pi OS Lite Image based on Raspios and packaged with Packer.
